@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "657015626379",
+    "firebase_url": "https://nomaste-app.firebaseio.com",
+    "project_id": "nomaste-app",
+    "storage_bucket": "nomaste-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657015626379:android:00696d6d560d9db519128e",
+        "android_client_info": {
+          "package_name": "com.project.nomaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657015626379-6ectrivlt7g08ogo1ud2a338rjm591ot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBamnE8E6ZhkqExxcHW8PQ2WDE2NSWnm1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657015626379-6ectrivlt7g08ogo1ud2a338rjm591ot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

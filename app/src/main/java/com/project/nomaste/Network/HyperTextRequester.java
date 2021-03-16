@@ -16,6 +16,30 @@ import java.util.Scanner;
 public class HyperTextRequester {
     final static String FIREBASE_REALTIME_DATABASE_URL =
             "https://nomaste-app.firebaseio.com/";
+    final static String GOOGLE_IDENTITY_TOOL_KIT_URL =
+            "https://identitytoolkit.googleapis.com/v1/accounts:";
+    final static String API_KEY = "AIzaSyBamnE8E6ZhkqExxcHW8PQ2WDE2NSWnm1s";
+    /**
+     * Builds the URL used to query Firebase.
+     *
+     * @param searchQuery The keyword that will be queried for.
+     * @param action it can be signInWithPassword or signUp
+     * @return The URL to use to query the Firebase server.
+     */
+    public static URL buildToolKitUrl(String searchQuery,String action) {
+        Uri builtUri = Uri.parse(GOOGLE_IDENTITY_TOOL_KIT_URL+action).buildUpon()
+                .appendPath(searchQuery)
+                .build();
+        Log.i("URL", "buildUrl: "+builtUri.toString());
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
 
     /**
      * Builds the URL used to query Firebase.
@@ -66,15 +90,16 @@ public class HyperTextRequester {
     public static void postDataFromHttpURL(URL url, String data) throws IOException{
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
         try {
-        String content = "body=" + URLEncoder.encode(data,"UTF-8");
-        conn.setRequestMethod("POST");
-        conn.setDoOutput(true);
-        conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-        OutputStream out = new BufferedOutputStream(conn.getOutputStream());
-
-        out.write(content.getBytes());
-        out.flush();
-        out.close();
+            conn.setRequestMethod("POST");
+            String content = "body=" + URLEncoder.encode(data,"UTF-8");
+            conn.setRequestProperty("Content-Type", "application/json; utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+            OutputStream out = conn.getOutputStream();
+            byte[] input = data.getBytes("utf-8");
+            out.write(input, 0, input.length);
+            //out.flush();
+            out.close();
 
         } finally {
             if(conn!=null)

@@ -10,10 +10,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.project.nomaste.Network.HyperTextRequester;
+import com.project.nomaste.ui.HomeFragment;
+import com.project.nomaste.ui.ScheduleFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.View;
@@ -27,7 +33,9 @@ import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
+    //Nested views in app
+    HomeFragment home = new HomeFragment();
+    ScheduleFragment schedule = new ScheduleFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Remove title bar
@@ -52,30 +60,31 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.setting:
                 Toast.makeText(getApplicationContext(),
                         "Settings View", Toast.LENGTH_SHORT);
-                break;
+                return true;
             case R.id.schedule:
-                Toast.makeText(getApplicationContext(),
-                        "Calendario View", Toast.LENGTH_SHORT);
-                break;
+                loadFragment(schedule);
+                return true;
             case R.id.smart_cleaning:
                 Toast.makeText(getApplicationContext(),
                         "S-Cleaning", Toast.LENGTH_SHORT);
-                break;
+                return true;
             case R.id.home:
-                Toast.makeText(getApplicationContext(),
-                        "Home View", Toast.LENGTH_SHORT);
-                break;
+                loadFragment(home);
+
+                return true;
             case R.id.gamepad:
                 Intent mainIntent = new Intent(MainActivity.this,Gamepad.class);
                 MainActivity.this.startActivity(mainIntent);
-                Toast.makeText(getApplicationContext(),
-                        "Gamepad View", Toast.LENGTH_SHORT);
                 MainActivity.this.finish();
-                break;
+                return true;
         }
-        return true;
+        return false;
     }
-
+    private void loadFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container,fragment);
+        transaction.commit();
+    }
     /**
      * This method retrieves the search text from the EditText, constructs the
      * URL (using {@link HyperTextRequester) for the github repository you'd like to find, displays

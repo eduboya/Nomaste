@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.project.nomaste.Network.HyperTextRequester;
 import com.project.nomaste.ui.HomeFragment;
 import com.project.nomaste.ui.ScheduleFragment;
+import com.project.nomaste.ui.SmartCleaningFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     //Nested views in app
     HomeFragment home = new HomeFragment();
     ScheduleFragment schedule = new ScheduleFragment();
+    SmartCleaningFragment smartCleaning = new SmartCleaningFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Remove title bar
@@ -64,10 +66,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.schedule:
                 loadFragment(schedule);
                 return true;
+
             case R.id.smart_cleaning:
+                loadFragment(smartCleaning);
                 Toast.makeText(getApplicationContext(),
                         "S-Cleaning", Toast.LENGTH_SHORT);
                 return true;
+
             case R.id.home:
                 loadFragment(home);
 

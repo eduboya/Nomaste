@@ -29,10 +29,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 public class Gamepad extends Activity {
+
     AutoCompleteTextView autoCTVRobots;
     AutoCompleteTextView autoCTVSpeeds;
     public String pressedButton;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gamepad);

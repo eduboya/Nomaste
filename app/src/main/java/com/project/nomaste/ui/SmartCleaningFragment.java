@@ -19,9 +19,9 @@ public class SmartCleaningFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflate the fragment layout
         View rootView = inflater.inflate(R.layout.fragment_smartcleaning, container, false);
-        // Get a reference to the ImageView in the fragment Layout
+
+
 
         return rootView;
     }

@@ -7,9 +7,113 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Smart cleaning Fragment"
+        android:text=" "
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/select_robot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/robotsGamepadList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="85dp"
+        android:hint="@string/select_corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/corner_List"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="200dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="270dp"
+        android:paddingTop="200dp"
+        tools:context="com.herprogramacion.camposdetexto.ActividadPrincipal">
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Insert Height" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="200dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="270dp"
+        android:paddingTop="250dp"
+        tools:context="com.herprogramacion.camposdetexto.ActividadPrincipal">
+
+        <EditText
+            android:id="@+id/width"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Insert Width" />
+    </RelativeLayout>
+
+    <TextView
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        android:paddingBottom="300dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="200dp"
+        android:paddingTop="350dp"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cleaning_surface" />
+
+    <Button
+        android:id="@+id/clean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="165dp"
+        android:layout_marginBottom="70dp"
+        android:text="Clean"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
